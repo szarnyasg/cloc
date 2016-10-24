@@ -316,7 +316,7 @@ Usage: $script [options] <file(s)/dir(s)> | <set 1> <set 2> | <report files>
    --exclude-dir=<D1>[,D2,]  Exclude the given comma separated directories
                              D1, D2, D3, et cetera, from being scanned.  For
                              example  --exclude-dir=.cache,test  will skip
-                             all files and subdirectories that have /.cache/ 
+                             all files and subdirectories that have /.cache/
                              or /test/ as their parent directory.
                              Directories named .bzr, .cvs, .hg, .git, and
                              .svn are always excluded.
@@ -357,7 +357,7 @@ Usage: $script [options] <file(s)/dir(s)> | <set 1> <set 2> | <report files>
                              directory name is compared, for example, when
                              counting in /usr/local/lib, only 'lib' is
                              compared to the regex.
-                             Add --fullpath to compare parent directories to 
+                             Add --fullpath to compare parent directories to
                              the regex.
    --match-f=<regex>         Only count files whose basenames match the Perl
                              regex.  For example
@@ -2870,7 +2870,7 @@ sub generate_report {                        # {{{1
             "3rd gen. equiv"
               if $opt_3;
         if ($opt_md) {
-            my @col_header  = (); 
+            my @col_header  = ();
             if ($data_line =~ m{\s%}) {
                 $data_line =~ s{\s%}{_%}g;
                 foreach my $w ( split(' ', $data_line) ) {
@@ -5504,6 +5504,7 @@ sub set_constants {                          # {{{1
             'XSLT'        => 'XSLT'                  ,
             'xsl'         => 'XSLT'                  ,
             'XSL'         => 'XSLT'                  ,
+            'xtend'       => 'Xtend'                 ,
             'y'           => 'yacc'                  ,
             'yaml'        => 'YAML'                  ,
             'yml'         => 'YAML'                  ,
@@ -5934,7 +5935,7 @@ sub set_constants {                          # {{{1
                                 [ 'remove_inline'       , '//.*$'  ],
                             ],
     'liquid'             => [
-                                [ 'remove_between_general', '{% comment %}', 
+                                [ 'remove_between_general', '{% comment %}',
                                                             '{% endcomment %}' ],
                                 [ 'remove_html_comments',          ],
                             ],
@@ -6324,6 +6325,10 @@ sub set_constants {                          # {{{1
     'Windows Module Definition' => [
                                 [ 'remove_matches'      , '^\s*;' ],
                                 [ 'remove_inline'       , ';.*$'  ],
+                            ],
+    'Xtend'              => [
+                                [ 'remove_inline'       , '//.*$'  ],
+                                [ 'call_regexp_common'  , 'C++'    ],
                             ],
     'yacc'               => [
                                 [ 'call_regexp_common'  , 'C++'    ],
@@ -7214,6 +7219,7 @@ sub set_constants {                          # {{{1
     'xlisp'                        =>   1.25,
     'XAML'                         =>   1.90,
     'XQuery'                       =>   2.50,
+    'Xtend'                        =>   3.00,
     'yacc'                         =>   1.51,
     'yacc++'                       =>   1.51,
     'YAML'                         =>   0.90,

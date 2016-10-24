@@ -5568,6 +5568,7 @@ sub set_constants {                          # {{{1
             'XSLT'        => 'XSLT'                  ,
             'xsl'         => 'XSLT'                  ,
             'XSL'         => 'XSLT'                  ,
+            'xtend'       => 'Xtend'                 ,
             'y'           => 'yacc'                  ,
             'yaml'        => 'YAML'                  ,
             'yml'         => 'YAML'                  ,
@@ -6427,6 +6428,11 @@ sub set_constants {                          # {{{1
     'Windows Module Definition' => [
                                 [ 'remove_matches'      , '^\s*;' ],
                                 [ 'remove_inline'       , ';.*$'  ],
+                            ],
+    'Xtend'              => [
+#                               [ 'remove_matches'      , '^\s*//' ],
+                                [ 'remove_inline'       , '//.*$'  ],
+                                [ 'call_regexp_common'  , 'C++'    ],
                             ],
     'yacc'               => [
                                 [ 'call_regexp_common'  , 'C++'    ],
@@ -7324,6 +7330,7 @@ sub set_constants {                          # {{{1
     'xlisp'                        =>   1.25,
     'XAML'                         =>   1.90,
     'XQuery'                       =>   2.50,
+    'Xtend'                        =>   3.00,
     'yacc'                         =>   1.51,
     'yacc++'                       =>   1.51,
     'YAML'                         =>   0.90,
@@ -7934,7 +7941,7 @@ foreach my $group (@generic) {
 }
 
 
-    
+
 #
 # Other languages.
 #
@@ -8108,10 +8115,10 @@ pattern name    => [qw /balanced -parens=() -begin= -end=/],
 
 1;
 # This software is Copyright (c) 2001 - 2013, Damian Conway and Abigail.
-# 
+#
 # This module is free software, and maybe used under any of the following
 # licenses:
-# 
+#
 #  1) The Perl Artistic License.     See the file COPYRIGHT.AL.
 #  2) The Perl Artistic License 2.0. See the file COPYRIGHT.AL2.
 #  3) The BSD Licence.               See the file COPYRIGHT.BSD.
@@ -8179,10 +8186,10 @@ pattern name   => [qw( quoted -esc=\\ )],
 
 1;
 # This software is Copyright (c) 2001 - 2009, Damian Conway and Abigail.
-# 
+#
 # This module is free software, and maybe used under any of the following
 # licenses:
-# 
+#
 #  1) The Perl Artistic License.     See the file COPYRIGHT.AL.
 #  2) The Perl Artistic License 2.0. See the file COPYRIGHT.AL2.
 #  3) The BSD Licence.               See the file COPYRIGHT.BSD.
